@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Lead Automation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">
+
+  <div class="w-full max-w-lg">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-white">Get In Touch</h1>
+      <p class="text-slate-400 mt-2">Tell us about your needs and we'll reach out within 24 hours.</p>
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8">
+
+      <!-- Success Banner -->
+      <div id="success-banner" class="hidden mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-green-800">Message received!</p>
+            <p id="success-detail" class="text-sm text-green-700 mt-1"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Banner -->
+      <div id="error-banner" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-red-800">Something went wrong</p>
+            <p id="error-detail" class="text-sm text-red-700 mt-1"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="lead-form" class="space-y-5">
+
+        <!-- Name + Email row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1" for="name">Full Name <span class="text-red-500">*</span></label>
+            <input id="name" name="name" type="text" required placeholder="Jane Smith"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1" for="email">Email <span class="text-red-500">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="jane@company.com"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+          </div>
+        </div>
+
+        <!-- Phone + Company row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1" for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+1 555 123 4567"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1" for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Acme Corp"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
+          </div>
+        </div>
+
+        <!-- Sector -->
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="sector">Sector</label>
+          <select id="sector" name="sector"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition bg-white">
+            <option value="">Select your industry…</option>
+            <option value="Technology">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Finance">Finance</option>
+            <option value="Retail">Retail</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="message">Message <span class="text-red-500">*</span></label>
+          <textarea id="message" name="message" required rows="4" placeholder="Tell us about your project or needs…"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition resize-none"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="submit-btn"
+          class="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold rounded-lg text-sm transition flex items-center justify-center gap-2">
+          <span id="btn-text">Send Message</span>
+          <svg id="btn-spinner" class="hidden animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:8004/api/lead';
+
+    const form = document.getElementById('lead-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const successBanner = document.getElementById('success-banner');
+    const errorBanner = document.getElementById('error-banner');
+    const successDetail = document.getElementById('success-detail');
+    const errorDetail = document.getElementById('error-detail');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Hide previous banners
+      successBanner.classList.add('hidden');
+      errorBanner.classList.add('hidden');
+
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.textContent = 'Sending…';
+      btnSpinner.classList.remove('hidden');
+
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim() || null,
+        company: form.company.value.trim() || null,
+        sector: form.sector.value || null,
+        message: form.message.value.trim(),
+        source: 'web_form',
+      };
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          successDetail.textContent =
+            `Your lead has been received (ID: ${data.id}). Our team will follow up shortly.`;
+          successBanner.classList.remove('hidden');
+          form.reset();
+        } else {
+          const msg = data.detail || JSON.stringify(data);
+          errorDetail.textContent = `Server error: ${msg}`;
+          errorBanner.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorDetail.textContent = `Could not reach the server. Make sure the API is running at ${API_URL}.`;
+        errorBanner.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        btnText.textContent = 'Send Message';
+        btnSpinner.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

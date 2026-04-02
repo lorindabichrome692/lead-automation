@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 32px; }
+    .badge { display: inline-block; background: #6b7280; color: white; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: bold; margin-bottom: 16px; }
+    h1 { font-size: 22px; color: #111827; margin: 0 0 12px; }
+    p { color: #374151; line-height: 1.6; }
+    .cta { display: inline-block; margin-top: 24px; padding: 12px 28px; background: #6b7280; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    .footer { margin-top: 32px; font-size: 12px; color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">📚 COLD LEAD</span>
+    <h1>Helpful resources for {{ sector or 'business' }} professionals</h1>
+    <p>Hi {{ name }}, thanks for reaching out. We've put together some resources that might be useful for you.</p>
+    <p>When you're ready to explore how automation can save your team time and money, we're here to help.</p>
+    <a href="#" class="cta">Download Free Guide</a>
+    <div class="footer">
+      <p>You received this email because you submitted a contact form. Reply to unsubscribe.</p>
+    </div>
+  </div>
+</body>
+</html>
